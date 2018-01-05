@@ -252,7 +252,7 @@ test_output_contains("bloodpressure_model",  incorrect_msg = "Le modèle est mal
 success_msg("Bien!")
 ```
 ---
-## Régression linéaire multi-variables (1)
+## Régression linéaire multi-variables (2)
 
 ```yaml
 type: NormalExercise
