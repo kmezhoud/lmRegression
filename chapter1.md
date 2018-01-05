@@ -15,23 +15,25 @@ lang: r
 xp: 100
 skills: 1
 ```
-For the first coding exercise, you'll create a formula to define a one-variable modeling task, and then fit a linear model to the data. You are given the rates of male and female unemployment in the United States over several years (Source).
+Pour le premier exercice de codage, vous allez créer une formule pour définir une tâche de modélisation à une variable, puis adapter un modèle linéaire aux données. On vous donne les taux de chômage masculin et féminin aux États-Unis sur plusieurs années ([Source](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/slr02.html)).
 
-The task is to predict the rate of female unemployment from the observed rate of male unemployment. The outcome is female_unemployment, and the input is male_unemployment.
+La tâche consiste à prédire le taux de chômage des femmes à partir du taux observé de chômage masculin. Le résultat est `female_unemployment`, et l'entrée est `male_unemployment`.
 
-The sign of the variable coefficient tells you whether the outcome increases (+) or decreases (-) as the variable increases.
+Le signe du coefficient variable vous indique si le résultat augmente (+) ou diminue (-) lorsque la variable augmente.
 
-Recall the calling interface for lm() is:
+Rappelez-vous que l'interface d'appel de lm () est:
 
-lm(formula, data = ___)
+`lm(formula, data = ___)`
 
 `@instructions`
-
+Les données `unemployment` est dans votre espace de travail.
 `@hint`
 
 `@pre_exercise_code`
 ```{r}
-
+male_unemployment <- c(2.9,6.7,4.9,7.9,9.8,6.9,6.1,6.2,6.0,5.1,4.7,4.4,5.8)
+female_unemployment <- c(4.0, 7.4, 5.0, 7.2, 7.9, 6.1, 6.0, 5.8, 5.2, 4.2, 4.0, 4.4,5.2)
+unemployment <- data.frame(male_unemployment,female_unemployment) 
 ```
 
 `@sample_code`
