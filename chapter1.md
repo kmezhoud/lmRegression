@@ -112,8 +112,6 @@ Toutes les functions prennent en argument l'object du modèle linéaire comme in
 
 `@pre_exercise_code`
 ```{r}
-library(broom)
-library(sigr)
 male_unemployment <- c(2.9,6.7,4.9,7.9,9.8,6.9,6.1,6.2,6.0,5.1,4.7,4.4,5.8)
 female_unemployment <- c(4.0, 7.4, 5.0, 7.2, 7.9, 6.1, 6.0, 5.8, 5.2, 4.2, 4.0, 4.4,5.2)
 unemployment <- data.frame(male_unemployment,female_unemployment) 
