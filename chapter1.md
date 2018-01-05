@@ -55,7 +55,6 @@ unemployment_model <-
 
 # Imprimer le modèle
 
-
 ```
 
 `@solution`
@@ -214,11 +213,11 @@ bloodpressure <- data.frame(blood_pressure, age, weight)
 summary(bloodpressure)
 
 # Créer la formule et imprimer
-fmla <- ---
+fmla <- ...
 ...
 
 # Ajuster le modèle: bloodpressure_model
-bloodpressure_model <- ---
+bloodpressure_model <- ...
 
 # Imprimer bloodpressure_model et fait appel à summary() 
 ...
