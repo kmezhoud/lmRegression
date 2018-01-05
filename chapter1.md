@@ -49,6 +49,7 @@ fmla <-
 
 # Impriler la formule
 
+
 # Utiliser la formule pour ajuster le modèle: unemployment_model
 unemployment_model <- 
 
@@ -95,15 +96,15 @@ lang: r
 xp: 100
 skills: 1
 ```
-Voyons le modèle que vous avez construit `unemployment`. Il y a plusieurs façons d'examiner un modèle. Chaque façon rapporte des informations différentes.
-Nous allons utilisé `summary()`, `broom::glance()`, and `sigr::wrapFTest()`.
+Voyons le modèle que vous avez construit `unemployment_model`. Il y a plusieurs façons d'examiner un modèle. Chaque façon rapporte des informations différentes.
+Nous allons utilisé `summary()`, `broom::glance()`, et `sigr::wrapFTest()`.
 
 `@instructions`
 L'objet `unemployment_model` est dans votre espace de travail
-- Imprimer `unemployment_model`une autre fois. quelle information reporte t-il?
+- Imprimer `unemployment_model` une autre fois. quelle information reporte t-il?
 - Utiliser la fonction  `summary()` à `unemployment_model`. En plus des coefficients, vous avez l'erreur standard des coefficients estimés, et  la qualité de l'ajustement métriques comme R-squared.
-- Utiliser la fonction `broom::glance()`  au modèle pour voir la performance métrique de la data frame ordonnée. Pourriez-vous comparer les informations de `summary()` avec les colonnes de `broom::glance()`?
-- Utiliser `sigr::wrapFTest()`sur le modèle pour voir R-squared.
+- Utiliser la fonction `broom::glance()`  au modèle pour voir la performance métrique de la data frame ordonnée. Pourriez-vous comparer les informations de `summary()` avec les colonnes de `broom::glance()` ?
+- Utiliser `sigr::wrapFTest()` sur le modèle pour voir R-squared.
 
 
 `@hint`
@@ -132,7 +133,7 @@ unemployment_model <- lm(fmla, unemployment)
 # Utiliser glance() sur unemployment_model pour voir autrement les détails du modèle
 
 
-# Utiliser wrapFTest() sur unemployment_model tpour voir d'autres détails importantes
+# Utiliser wrapFTest() sur unemployment_model pour voir d'autres détails importants
 
 ```
 
@@ -148,7 +149,7 @@ summary(unemployment_model)
 # Utiliser glance() sur unemployment_model pour voir autrement les détails du modèle
 broom::glance(unemployment_model)
 
-# Utiliser wrapFTest() sur unemployment_model tpour voir d'autres détails importantes
+# Utiliser wrapFTest() sur unemployment_model pour voir d'autres détails importants
 sigr::wrapFTest(unemployment_model)
 ```
 
