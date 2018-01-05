@@ -103,7 +103,7 @@ Nous allons utilisé `summary()`, `broom::glance()`, et `sigr::wrapFTest()`.
 L'objet `unemployment_model` est dans votre espace de travail
 - Imprimer `unemployment_model` une autre fois. quelle information reporte t-il?
 - Utiliser la fonction  `summary()` à `unemployment_model`. En plus des coefficients, vous avez l'erreur standard des coefficients estimés, et  la qualité de l'ajustement métriques comme R-squared.
-- Utiliser la fonction `broom::glance()`  au modèle pour voir la performance métrique de la data frame ordonnée. Pourriez-vous comparer les informations de `summary()` avec les colonnes de `broom::glance()` ?
+- Utiliser la fonction `broom::glance()`  au modèle pour voir la performance métrique de la data frame ordonnée. Pourriez-vous comparer les informations de `summary()` avec les colonnes de `broom::glance()`?
 - Utiliser `sigr::wrapFTest()` sur le modèle pour voir R-squared.
 
 
@@ -112,6 +112,7 @@ Toutes les functions prennent en argument l'object du modèle linéaire comme in
 
 `@pre_exercise_code`
 ```{r}
+
 male_unemployment <- c(2.9,6.7,4.9,7.9,9.8,6.9,6.1,6.2,6.0,5.1,4.7,4.4,5.8)
 female_unemployment <- c(4.0, 7.4, 5.0, 7.2, 7.9, 6.1, 6.0, 5.8, 5.2, 4.2, 4.0, 4.4,5.2)
 unemployment <- data.frame(male_unemployment,female_unemployment) 
