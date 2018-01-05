@@ -327,6 +327,6 @@ ggplot(bloodpressure, aes(x = prediction, y = blood_pressure)) +
 
 `@sct`
 ```{r}
-#test_output_contains("bloodpressure",  incorrect_msg = "Le modèle est mal ajusté") 
+test_output_contains("bloodpressure",  incorrect_msg = "Le modèle est mal ajusté") 
 success_msg("Bien!")
 ```
