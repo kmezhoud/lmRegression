@@ -205,20 +205,46 @@ La data frame `bloodpressure`ets dans votre espace de travail.
 blood_pressure <- c(132, 143, 153, 162, 154, 168, 137, 149, 159, 128, 166)
 age <- c(52, 59, 67, 73, 64, 74, 54, 61, 65, 46, 72)
 weight <- c(173, 184, 194, 211, 196, 220, 188, 188, 207, 167, 217)
-bloodpressure <- dataframe(blood_pressure, age, weight)
+bloodpressure <- data.frame(blood_pressure, age, weight)
 ```
 
 `@sample_code`
 ```{r}
+# bloodpressure est dans votre espace de travail
+summary(bloodpressure)
 
+# Créer la formule et imprimer
+fmla <- ---
+...
+
+# Ajuster le modèle: bloodpressure_model
+bloodpressure_model <- ---
+
+# Imprimer bloodpressure_model et fait appel à summary() 
+...
+...
 ```
 
 `@solution`
 ```{r}
+# bloodpressure est dans votre espace de travail
+summary(bloodpressure)
 
+# Créer la formule et imprimer
+fmla <- blood_pressure ~ age + weight
+fmla
+
+# Ajuster le modèle: bloodpressure_model
+bloodpressure_model <- lm(fmla, bloodpressure)
+
+# Imprimer bloodpressure_model et fait appel à summary() 
+bloodpressure_model
+summary(bloodpressure_model)
 ```
 
 `@sct`
 ```{r}
-
+test_output_contains("fmla", incorrect_msg = "Votre foumule est mal définie")
+test_output_contains("bloodpressure_model",  incorrect_msg = "Le modèle est mal ajusté") 
+success_msg("Bien!")
 ```
