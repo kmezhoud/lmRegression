@@ -107,6 +107,7 @@ L'objet `unemployment_model` est dans votre espace de travail
 
 
 `@hint`
+Toutes les functions prennent en argument l'object du modèle linéaire comme input.
 
 `@pre_exercise_code`
 ```{r}
