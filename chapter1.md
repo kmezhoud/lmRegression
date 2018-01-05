@@ -116,7 +116,9 @@ You will use the ggplot2 package to make the plots, so you will add the predicti
 ```{r}
 male_unemployment <- c(2.9, 6.7, 4.9, 7.9, 9.8, 6.9, 6.1, 6.2, 6.0, 5.1, 4.7, 4.4, 5.8)
 female_unemployment <- c(4.0, 7.4, 5.0, 7.2, 7.9, 6.1, 6.0, 5.8, 5.2, 4.2, 4.0, 4.4, 5.2)
-unemployment <- data.frame(male_unemployment,female_unemployment) 
+unemployment <- data.frame(male_unemployment,female_unemployment)
+fmla <- female_unemployment ~  male_unemployment 
+unemployment_model <- lm(fmla, unemployment)
 newrates <- data.frame('male_unemployment' = 5)
 ```
 
