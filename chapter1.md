@@ -199,6 +199,10 @@ La data frame `bloodpressure`ets dans votre espace de travail.
 
 `@hint`
 
+- La formule prend la forme: `outcome ~ input_var1 + input_var2 + ....`
+- L'appel à `lm()` se fait ainsi `lm(formula, data)`.
+- Le signe de du coeffcient indique si le résultat augmente (+) ou déscend (-)  si la variable étudiée augmente.
+
 `@pre_exercise_code`
 ```{r}
 blood_pressure <- c(132, 143, 153, 162, 154, 168, 137, 149, 159, 128, 166)
@@ -245,5 +249,83 @@ summary(bloodpressure_model)
 ```{r}
 test_output_contains("fmla", incorrect_msg = "Votre foumule est mal définie")
 test_output_contains("bloodpressure_model",  incorrect_msg = "Le modèle est mal ajusté") 
+success_msg("Bien!")
+```
+---
+## Régression linéaire multi-variables (1)
+
+```yaml
+type: NormalExercise
+key: 6d60e29e00
+lang: r
+xp: 100
+skills: 1
+```
+Maintenant nous allons faire une prédiction avec le modèle `bloodpressure_model`, ajusté prélablement.
+Vous allez aussi comparer les valeurs prédites avec les valeurs expérimentales avec un le package ggplot2.
+Faire appel à ggplot ainsi:
+
+`ggplot(dframe, aes(x = pred, y = outcome)) + 
+     geom_point() + 
+     geom_abline(color = "blue")`
+
+`@instructions`
+Le jeu de donnée `bloodpressure` et le modèle `bloodpressure_model`sont déjà dans votre espace de travail.
+
+- Utiliser `predict()` pour prédire la pression du sang dans le jeu de donnée `bloodpressure`. Affecter les prédictions dans une nouvelle colonne `prediction`.
+- Graphiquement, comaper les valeurs de la pression du sang entre les deux colonnes `prediction` et `blood_pressure`. Mettre `predictions`dan sl'axe des x. A quel point les résultats sont-ils proches de la ligne de prédiction parfaite?
+
+`@hint`
+
+- Quand la prediction se fait sur les données d'essais, la forme de prédiction est `predict(model)`
+- Le résultat réel est dans la colonne `blood_pressure`.
+
+`@pre_exercise_code`
+```{r}
+blood_pressure <- c(132, 143, 153, 162, 154, 168, 137, 149, 159, 128, 166)
+age <- c(52, 59, 67, 73, 64, 74, 54, 61, 65, 46, 72)
+weight <- c(173, 184, 194, 211, 196, 220, 188, 188, 207, 167, 217)
+bloodpressure <- data.frame(blood_pressure, age, weight)
+fmla <- blood_pressure ~ age + weight
+bloodpressure_model <- lm(fmla, bloodpressure)
+```
+
+`@sample_code`
+```{r}
+# bloodpressure est déjà dans votre espace de travail
+summary(bloodpressure)
+
+# bloodpressure_model est déjà dans votre espace de travail
+bloodpressure_model
+
+# prédire la pression du sang en utilisant le modèle bloodpressure_model :prediction
+bloodpressure$prediction <- ...
+
+# plot le résultat
+... + 
+    ...+
+    geom_abline(color = "blue")
+```
+
+`@solution`
+```{r}
+# bloodpressure est déjà dans votre espace de travail
+summary(bloodpressure)
+
+# bloodpressure_model est déjà dans votre espace de travail
+bloodpressure_model
+
+# prédire la pression du sang en utilisant le modèle bloodpressure_model :prediction
+bloodpressure$prediction <- predict(bloodpressure_model, bloodpressure )
+
+# plot le résultat
+ggplot(bloodpressure, aes(x = prediction, y = blood_pressure)) + 
+    geom_point() +
+    geom_abline(color = "blue")
+```
+
+`@sct`
+```{r}
+test_output_contains("bloodpressure",  incorrect_msg = "Le modèle est mal ajusté") 
 success_msg("Bien!")
 ```
