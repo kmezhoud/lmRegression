@@ -112,6 +112,8 @@ Toutes les functions prennent en argument l'object du modèle linéaire comme in
 
 `@pre_exercise_code`
 ```{r}
+library(sigr)
+library(broom)
 male_unemployment <- c(2.9, 6.7, 4.9, 7.9, 9.8, 6.9, 6.1, 6.2, 6.0, 5.1, 4.7, 4.4, 5.8)
 female_unemployment <- c(4.0, 7.4, 5.0, 7.2, 7.9, 6.1, 6.0, 5.8, 5.2, 4.2, 4.0, 4.4, 5.2)
 unemployment <- data.frame(male_unemployment,female_unemployment) 
@@ -153,5 +155,95 @@ wrapFTest(unemployment_model)
 
 `@sct`
 ```{r}
+success_msg("Bien!")
+```
+
+---
+## Prédire du modèle de chômage
+
+```yaml
+type: NormalExercise
+key: 7c4fdfa350
+lang: r
+xp: 100
+skills: 1
+```
+Dans cet exercice, vous utiliserez votre modèle de chômage, `unemployment_model`, pour faire des prédictions à partir des données sur le chômage et comparer les taux de chômage prévus des femmes aux taux réels de chômage des femmes observés sur les données `unemployment`. Vous utiliserez également votre modèle pour prédire sur des nouvelles valeurs de chômage `newrates` qui consiste en une seule observation, où le chômage des hommes est de 5%.
+
+La fonction `predict()` est utilisée sur le modèle généré par `lm` ainsi:
+
+`predict(model, newdata)`
+
+Vous allez utilisé le package `ggplot2` pour déssiner les plots. Il est nécéssaire d'ajouter une colonne de prédiction à la data frame `unemployment`. Vous allez corréler dans le plot le `outcome` par rapport `prediction`, et les comparer à la ligne qui représente une parfaite prédiction ()
+You will use the ggplot2 package to make the plots, so you will add the prediction column to the unemployment data frame. You will plotla ligne quand au `outcome` est égale à la valeur prédite.
+
+`@instructions`
+
+`@hint`
+- la fonction `predict()` retourne les prédictions en se basant sur le modèle 
+- L'argument `newdata` de `predict()` spécifie la nouvelle data frame sur laqulle sera faite la prédiction.
+
+`@pre_exercise_code`
+```{r}
+male_unemployment <- c(2.9, 6.7, 4.9, 7.9, 9.8, 6.9, 6.1, 6.2, 6.0, 5.1, 4.7, 4.4, 5.8)
+female_unemployment <- c(4.0, 7.4, 5.0, 7.2, 7.9, 6.1, 6.0, 5.8, 5.2, 4.2, 4.0, 4.4, 5.2)
+unemployment <- data.frame(male_unemployment,female_unemployment) 
+newrates <- data.frame('male_unemployment' = 5)
+```
+
+`@sample_code`
+```{r}
+# unemployment est dans votre espace de travail
+summary(unemployment)
+
+# newrates est dans votre espace de travail
+newrates
+
+# Prédire le chômage des femmes dans la data frame unemployment
+unemployment$prediction <-  predict(---, ---)
+
+# Importer le package ggplot2
+library(ggplot2)
+
+# Dessiner le plot pour comparer les prédictions des femmes au chômage par rapport à ce qui existe réellement (mettre les prédictions sur l'axe des x). 
+ggplot(---, aes(x = ---, y = ---)) + 
+  --- +
+  geom_abline(color = "blue")
+
+# Predir le chômage des femmes si le taux du taux de chômage des hommes est de 5%
+pred <- predict(---, ---)
+# imprimer le
+pred
+```
+
+`@solution`
+```{r}
+# unemployment est dans votre espace de travail
+summary(unemployment)
+
+# newrates est dans votre espace de travail
+newrates
+
+# Prédire le chômage des femmes dans la data frame unemployment
+unemployment$prediction <-  predict(unemployment_model, unemployment['male_unemployment'])
+
+# Importer le package ggplot2
+library(ggplot2)
+
+# Dessiner le plot pour comparer les prédictions des femmes au chômage par rapport à ce qui existe réellement (mettre les prédictions sur l'axe des x). 
+ggplot(unemployment, aes(x = prediction, y = female_unemployment)) + 
+  geom_point() +
+  geom_abline(color = "blue")
+
+# Predir le chômage des femmes si le taux du taux de chômage des hommes est de 5%
+pred <- predict(unemployment_model, newrates)
+# imprimer le
+pred
+```
+
+`@sct`
+```{r}
+test_output_contains("unemployment['prediction']", incorrect_msg = "Fausse prédiction du chômage des femmes. IL faut utiliser le modèle et les données des chômage des hommes.")
+test_output_contains("pred", incorrect_msg = "Utiliser la valeur de 5 pour le chômage des hommes.")
 success_msg("Bien!")
 ```
