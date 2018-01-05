@@ -121,15 +121,37 @@ unemployment_model <- lm(fmla, unemployment)
 
 `@sample_code`
 ```{r}
+# broom et sigr sont déjà chargés dans votre espace de travail
+# Imprimer unemployment_model
+
+
+# Utiliser summary() sur unemployment_model pour avoir les détails du modèle
+
+
+# Utiliser glance() sur unemployment_model pour voir autrement les détails du modèle
+
+
+# Utiliser wrapFTest() sur unemployment_model tpour voir d'autres détails importantes
 
 ```
 
 `@solution`
 ```{r}
+# broom et sigr sont déjà chargés dans votre espace de travail
+# Imprimer unemployment_model
+unemployment_model
 
+# Utiliser summary() sur unemployment_model pour avoir les détails du modèle
+summary(unemployment_model)
+
+# Utiliser glance() sur unemployment_model pour voir autrement les détails du modèle
+glance(unemployment_model)
+
+# Utiliser wrapFTest() sur unemployment_model tpour voir d'autres détails importantes
+wrapFTest(unemployment_model)
 ```
 
 `@sct`
 ```{r}
-
+success_msg("Bien!")
 ```
