@@ -1,6 +1,6 @@
 ---
 title       : Introduction à la Regression
-description : Dans ce chapitre, nous introduisons le concept de régression du point de vue de l'apprentissage automatique. Nous présenterons la méthode de régression fondamentale: la régression linéaire. Nous montrerons comment ajuster un modèle de régression linéaire et faire des prédictions à partir du modèle.
+description : Dans ce chapitre, nous introduisons le concept de régression du point de vue de l'apprentissage automatique. Nous présenterons la méthode de régression fondamentale - la régression linéaire. Nous montrerons comment ajuster un modèle de régression linéaire et faire des prédictions à partir du modèle.
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
