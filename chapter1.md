@@ -282,6 +282,7 @@ Le jeu de donnée `bloodpressure` et le modèle `bloodpressure_model`sont déjà
 
 `@pre_exercise_code`
 ```{r}
+library(ggplo2)
 blood_pressure <- c(132, 143, 153, 162, 154, 168, 137, 149, 159, 128, 166)
 age <- c(52, 59, 67, 73, 64, 74, 54, 61, 65, 46, 72)
 weight <- c(173, 184, 194, 211, 196, 220, 188, 188, 207, 167, 217)
