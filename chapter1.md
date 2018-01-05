@@ -174,7 +174,7 @@ pred
 
 `@sct`
 ```{r}
-test_output_contains("unemployment[['prediction]]", incorrect_msg = "Fausse prédiction du chômage des femmes. Il faut utiliser le modèle et les données des chômage des hommes.")
+#test_output_contains("unemployment[['prediction]]", incorrect_msg = "Fausse prédiction du chômage des femmes. Il faut utiliser le modèle et les données des #chômage des hommes.")
 test_output_contains("pred", incorrect_msg = "Utiliser la valeur de 5 pour le chômage des hommes.")
 success_msg("Bien!")
 ```
