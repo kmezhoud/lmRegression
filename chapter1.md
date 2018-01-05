@@ -303,7 +303,7 @@ bloodpressure_model
 bloodpressure$prediction <- ...
 
 # plot le résultat
-... + 
+ggplo( ... + ... )+ 
     ...+
     geom_abline(color = "blue")
 ```
