@@ -88,41 +88,6 @@ success_msg("Bien!")
 
 
 ---
-## Régression linéaire multi-variables (1)
-
-```yaml
-type: NormalExercise
-key: 845b9c9495
-lang: r
-xp: 100
-skills: 1
-```
-
-
-`@instructions`
-
-`@hint`
-
-`@pre_exercise_code`
-```{r}
-
-```
-
-`@sample_code`
-```{r}
-
-```
-
-`@solution`
-```{r}
-
-```
-
-`@sct`
-```{r}
-
-```
----
 ## Prédire du modèle de chômage
 
 ```yaml
@@ -212,4 +177,48 @@ pred
 #test_output_contains("unemployment$prediction", incorrect_msg = "Fausse prédiction du chômage des femmes. Il faut utiliser le modèle et les données des #chômage des hommes.")
 test_output_contains("pred", incorrect_msg = "Utiliser la valeur de 5 pour le chômage des hommes.")
 success_msg("Bien!")
+```
+
+---
+## Régression linéaire multi-variables (1)
+
+```yaml
+type: NormalExercise
+key: 845b9c9495
+lang: r
+xp: 100
+skills: 1
+```
+Dans cet exercice, vous allez travaillé avec la pression du sang ([Source](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/mlr/frames/frame.html)), et modéliser la pression du sang en fonction de la masse et de l'age.
+
+`@instructions`
+La data frame `bloodpressure`ets dans votre espace de travail.
+
+- Définissez une formule est exprime la pression du sang `bllod_pressure` en fonction de la masse `weight` et de l'age `age`. Affecter la formule à la variable `fmla` et imprimez la.
+- Utilisez `fmla`pour ajuster le modèle linéaire pour prédire `blood_pressure` à partir de `age` et `weight` du jeu de donnée `bloodpressure`. nommez le modèle à `bloodpressure_model`.
+- Imprimer le modèle et utiliser `summary()`. Est ce que la pression du sang augmente ou déscend en fonction de l'age? et la masse?.
+
+`@hint`
+
+`@pre_exercise_code`
+```{r}
+blood_pressure <- c(132, 143, 153, 162, 154, 168, 137, 149, 159, 128, 166)
+age <- c(52, 59, 67, 73, 64, 74, 54, 61, 65, 46, 72)
+weight <- c(173, 184, 194, 211, 196, 220, 188, 188, 207, 167, 217)
+bloodpressure <- dataframe(blood_pressure, age, weight)
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+
+```
+
+`@sct`
+```{r}
+
 ```
