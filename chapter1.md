@@ -112,9 +112,8 @@ Toutes les functions prennent en argument l'object du modèle linéaire comme in
 
 `@pre_exercise_code`
 ```{r}
-
-male_unemployment <- c(2.9,6.7,4.9,7.9,9.8,6.9,6.1,6.2,6.0,5.1,4.7,4.4,5.8)
-female_unemployment <- c(4.0, 7.4, 5.0, 7.2, 7.9, 6.1, 6.0, 5.8, 5.2, 4.2, 4.0, 4.4,5.2)
+male_unemployment <- c(2.9, 6.7, 4.9, 7.9, 9.8, 6.9, 6.1, 6.2, 6.0, 5.1, 4.7, 4.4, 5.8)
+female_unemployment <- c(4.0, 7.4, 5.0, 7.2, 7.9, 6.1, 6.0, 5.8, 5.2, 4.2, 4.0, 4.4, 5.2)
 unemployment <- data.frame(male_unemployment,female_unemployment) 
 fmla <- female_unemployment ~  male_unemployment 
 unemployment_model <- lm(fmla, unemployment)
@@ -149,7 +148,7 @@ summary(unemployment_model)
 broom::glance(unemployment_model)
 
 # Utiliser wrapFTest() sur unemployment_model pour voir d'autres détails importants
-sigr::wrapFTest(unemployment_model)
+wrapFTest(unemployment_model)
 ```
 
 `@sct`
