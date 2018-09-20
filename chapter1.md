@@ -1,11 +1,10 @@
 ---
-title       : Introduction à la Regression
-description : Dans ce chapitre, nous introduisons le concept de régression du point de vue de l'apprentissage automatique. Nous présenterons la méthode de régression fondamentale - la régression linéaire. Nous montrerons comment ajuster un modèle de régression linéaire et faire des prédictions à partir du modèle.
-attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
-
-
+title: 'Introduction à la Regression'
+description: 'Dans ce chapitre, nous introduisons le concept de régression du point de vue de l''apprentissage automatique. Nous présenterons la méthode de régression fondamentale - la régression linéaire. Nous montrerons comment ajuster un modèle de régression linéaire et faire des prédictions à partir du modèle.'
+attachments:
+    slides_link: 'https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf'
 ---
+
 ## Coder une régression à une seule variable
 
 ```yaml
@@ -28,6 +27,7 @@ Rappelez-vous que l'interface d'appel de lm () est:
 
 `@instructions`
 Les données `unemployment` est dans votre espace de travail.
+
 `@hint`
 La formule a la forme suivante `outcome ~ input1 + input2 + ....`
 vous devez passer deux arguments dans la fonction `lm()`: la formile et la data frame.
@@ -84,7 +84,9 @@ test_output_contains("fmla", incorrect_msg = badFormula_msg)
 test_output_contains("unemployment_model", incorrect_msg = BadModel_msg)
 success_msg("Bien!")
 ```
+
 ---
+
 ## Examiner un modèle
 
 ```yaml
@@ -94,6 +96,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Voyons le modèle que vous avez construit `unemployment_model`. Il y a plusieurs façons d'examiner un modèle. Chaque façon rapporte des informations différentes.
 Nous allons utilisé `summary()`, `broom::glance()`, et `sigr::wrapFTest()`.
 
@@ -103,7 +106,6 @@ L'objet `unemployment_model` est dans votre espace de travail
 - Utiliser la fonction  `summary()` à `unemployment_model`. En plus des coefficients, vous avez l'erreur standard des coefficients estimés, et  la qualité de l'ajustement métriques comme R-squared.
 - Utiliser la fonction `broom::glance()`  au modèle pour voir la performance métrique de la data frame ordonnée. Pourriez-vous comparer les informations de `summary()` avec les colonnes de `broom::glance()`?
 - Utiliser `sigr::wrapFTest()` sur le modèle pour voir R-squared.
-
 
 `@hint`
 Toutes les functions prennent en argument l'object du modèle linéaire comme input.
@@ -158,6 +160,7 @@ success_msg("Bien!")
 ```
 
 ---
+
 ## Prédire du modèle de chômage
 
 ```yaml
@@ -167,6 +170,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Dans cet exercice, vous utiliserez votre modèle de chômage, `unemployment_model`, pour faire des prédictions à partir des données sur le chômage et comparer les taux de chômage prévus des femmes aux taux réels de chômage des femmes observés sur les données `unemployment`. Vous utiliserez également votre modèle pour prédire sur des nouvelles valeurs de chômage `newrates` qui consiste en une seule observation, où le chômage des hommes est de 5%.
 
 La fonction `predict()` est utilisée sur le modèle généré par `lm` ainsi:
@@ -177,6 +181,7 @@ Vous allez utilisé le package `ggplot2` pour déssiner les plots. Il est nécé
 You will use the ggplot2 package to make the plots, so you will add the prediction column to the unemployment data frame. You will plotla ligne quand au `outcome` est égale à la valeur prédite.
 
 `@instructions`
+
 
 `@hint`
 - la fonction `predict()` retourne les prédictions en se basant sur le modèle 
@@ -250,6 +255,7 @@ success_msg("Bien!")
 ```
 
 ---
+
 ## Régression linéaire multi-variables (1)
 
 ```yaml
@@ -259,6 +265,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Dans cet exercice, vous allez travaillé avec la pression du sang ([Source](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/mlr/frames/frame.html)), et modéliser la pression du sang en fonction de la masse et de l'age.
 
 `@instructions`
@@ -269,7 +276,6 @@ La data frame `bloodpressure`ets dans votre espace de travail.
 - Imprimer le modèle et utiliser `summary()`. Est ce que la pression du sang augmente ou déscend en fonction de l'age? et la masse?.
 
 `@hint`
-
 - La formule prend la forme: `outcome ~ input_var1 + input_var2 + ....`
 - L'appel à `lm()` se fait ainsi `lm(formula, data)`.
 - Le signe de du coeffcient indique si le résultat augmente (+) ou déscend (-)  si la variable étudiée augmente.
@@ -322,7 +328,9 @@ test_output_contains("fmla", incorrect_msg = "Votre foumule est mal définie")
 test_output_contains("bloodpressure_model",  incorrect_msg = "Le modèle est mal ajusté") 
 success_msg("Bien!")
 ```
+
 ---
+
 ## Régression linéaire multi-variables (2)
 
 ```yaml
@@ -332,6 +340,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Maintenant nous allons faire une prédiction avec le modèle `bloodpressure_model`, ajusté prélablement.
 Vous allez aussi comparer les valeurs prédites avec les valeurs expérimentales avec un le package ggplot2.
 Faire appel à ggplot ainsi:
@@ -347,7 +356,6 @@ Le jeu de donnée `bloodpressure` et le modèle `bloodpressure_model`sont déjà
 - Graphiquement, comaper les valeurs de la pression du sang entre les deux colonnes `prediction` et `blood_pressure`. Mettre `predictions`dan sl'axe des x. A quel point les résultats sont-ils proches de la ligne de prédiction parfaite?
 
 `@hint`
-
 - Quand la prediction se fait sur les données d'essais, la forme de prédiction est `predict(model)`
 - Le résultat réel est dans la colonne `blood_pressure`.
 
